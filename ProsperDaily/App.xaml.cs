@@ -8,7 +8,7 @@ namespace ProsperDaily
         {
             InitializeComponent();
 
-            MainPage = new TransactionsPage();
+            MainPage = new StatisticPage();
         }
     }
 }
