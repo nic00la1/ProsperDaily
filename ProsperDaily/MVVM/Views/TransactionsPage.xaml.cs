@@ -24,4 +24,5 @@ public partial class TransactionsPage : ContentPage
     {
         await Navigation.PopToRootAsync();
     }
+
 }
