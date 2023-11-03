@@ -2,25 +2,22 @@
 using ProsperDaily.MVVM.Views;
 using ProsperDaily.Repositories;
 
-namespace ProsperDaily
+namespace ProsperDaily;
+
+public partial class App : Application
 {
-    public partial class App : Application
+
+    public static BaseRepository<Transaction>
+         TransactionsRepo
+    { get; private set; }
+
+    public App(BaseRepository<Transaction> _transcationsRepo)
     {
-        public static BaseRepository<Transaction>
+        Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF5cWWBCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdgWH5ec3VWR2hcUkxzW0c=");
+        InitializeComponent();
 
-            TransactionsRepo
-        { get; private set; }
+        TransactionsRepo = _transcationsRepo;
 
-
-        public App(BaseRepository<Transaction> _transactionsRepo)
-        {
-            // Register Syncfusion Licence
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF5cXmVCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdgWH5ec3VXRWBcVUZ3WkM=");
-
-            InitializeComponent();
-            TransactionsRepo = _transactionsRepo;
-
-            MainPage = new StatisticPage();
-        }
+        MainPage = new AppContainer();
     }
 }
